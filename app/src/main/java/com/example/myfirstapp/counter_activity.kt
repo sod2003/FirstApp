@@ -17,7 +17,7 @@ class activity_counter : AppCompatActivity() {
     }
 
     fun updateCounter(view: View) {
-        var currentValue = Integer.parseInt(tvCounter.text.toString())
+        //var currentValue = Integer.parseInt(tvCounter.text.toString())
         counter++
         tvCounter.setText(""+counter)
     }
