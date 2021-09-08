@@ -1,6 +1,7 @@
 package com.example.myfirstapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,7 +20,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickHandler(view: View) {
-        var intent = Intent(this, activity_counter::class.java)
+        //startCounterActivity()
+        startDialer()
+    }
+
+    private fun startDialer() {
+        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:8675309")) //implicit intent
+        startActivity(dialIntent)
+    }
+
+    private fun startCounterActivity() {
+        var intent = Intent(this, activity_counter::class.java) //explicit Intent
         var name = etName.text.toString()
         //tvName.setText(name)
         intent.putExtra("nkey", name)
