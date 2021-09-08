@@ -14,6 +14,8 @@ class activity_counter : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_counter)
         tvCounter = findViewById(R.id.count_initial_value)
+        var name = intent.getStringExtra("nkey")
+        tvCounter.setText(name)
     }
 
     fun updateCounter(view: View) {
