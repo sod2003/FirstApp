@@ -20,8 +20,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickHandler(view: View) {
-        //startCounterActivity()
-        startDialer()
+        startCounterActivity()
+        //startDialer()
+        //startEmail()
+
+    }
+
+    private fun startEmail() {
+        var emailIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_EMAIL, "sod2003@gmail.com")
+            putExtra(Intent.EXTRA_SUBJECT, "Hi")
+            putExtra(Intent.EXTRA_TEXT, "Hi, Sean!")
+        }
+        startActivity(emailIntent)
     }
 
     private fun startDialer() {
@@ -34,6 +46,12 @@ class MainActivity : AppCompatActivity() {
         var name = etName.text.toString()
         //tvName.setText(name)
         intent.putExtra("nkey", name)
-        startActivity(intent)
+        startActivityForResult(intent, 123)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, dataIntent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, dataIntent)
+        var contact = dataIntent?.getStringExtra("ckey")
+        tvName.setText(contact)
     }
 }

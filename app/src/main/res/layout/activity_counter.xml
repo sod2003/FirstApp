@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".activity_counter">
 
+    <EditText
+        android:id="@+id/etContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="enter contact details"
+        android:inputType="textPersonName"
+        />
+
     <Button
         android:id="@+id/button_label_toast"
         android:layout_width="match_parent"
@@ -32,4 +41,6 @@
         android:layout_height="wrap_content"
         android:onClick="updateCounter"
         android:text="Count" />
+
+
 </LinearLayout>
