@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickHandler(view: View) {
-        startCounterActivity()
+        //startCounterActivity()
         //startDialer()
         //startEmail()
 
