@@ -9,9 +9,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 
-private val TAG: String = MainActivity::class.java.getSimpleName()
-
 class MainActivity : AppCompatActivity() {
+    var TAG = MainActivity::class.java.simpleName
+
     lateinit var etName: EditText
     lateinit var tvName: TextView
 
