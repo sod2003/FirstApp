@@ -3,10 +3,13 @@ package com.example.myfirstapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+
+private val TAG: String = activity_counter::class.java.getSimpleName()
 
 class activity_counter : AppCompatActivity() {
     lateinit var tvCounter:TextView
@@ -20,6 +23,34 @@ class activity_counter : AppCompatActivity() {
         etContact = findViewById(R.id.etContact)
         var name = intent.getStringExtra("nkey")
         tvCounter.setText(name)
+        Log.d(TAG, "------")
+        Log.d(TAG, "onCreate")
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
     }
 
     fun updateCounter(view: View) {

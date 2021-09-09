@@ -4,9 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+
+private val TAG: String = MainActivity::class.java.getSimpleName()
 
 class MainActivity : AppCompatActivity() {
     lateinit var etName: EditText
@@ -17,10 +20,37 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         etName = findViewById(R.id.etName)
         tvName = findViewById(R.id.tvName)
+        Log.d(TAG, "------")
+        Log.d(TAG, "onCreate")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
     }
 
     fun clickHandler(view: View) {
-        //startCounterActivity()
+        startCounterActivity()
         //startDialer()
         //startEmail()
 
