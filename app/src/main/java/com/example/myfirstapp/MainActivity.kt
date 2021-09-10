@@ -49,6 +49,13 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onDestroy")
     }
 
+    /*override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // Add information for saving tvCounter to the outState bundle
+        outState.putString("reply_text", tvCounter.getText().toString())
+    }*/
+
+
     fun clickHandler(view: View) {
         startCounterActivity()
         //startDialer()

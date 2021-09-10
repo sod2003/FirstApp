@@ -1,13 +1,12 @@
 package com.example.myfirstapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 private val TAG: String = activity_counter::class.java.getSimpleName()
 
@@ -19,12 +18,16 @@ class activity_counter : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_counter)
+
         tvCounter = findViewById(R.id.count_initial_value)
         etContact = findViewById(R.id.etContact)
-        var name = intent.getStringExtra("nkey")
-        tvCounter.setText(name)
+        //var name = intent.getStringExtra("nkey")
+        //tvCounter.setText(name)
+
         Log.d(TAG, "------")
         Log.d(TAG, "onCreate")
+
+        tvCounter.setText(savedInstanceState?.getString("reply_text"));
 
     }
 
@@ -52,6 +55,7 @@ class activity_counter : AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy")
     }
+
 
     fun updateCounter(view: View) {
         //var currentValue = Integer.parseInt(tvCounter.text.toString())

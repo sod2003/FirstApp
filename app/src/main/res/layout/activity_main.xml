@@ -13,8 +13,8 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="73dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/enter_name"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,8 +25,8 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="14dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="@string/enter_password"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/etName"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
@@ -35,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:text="Submit"
         android:onClick="clickHandler"
+        android:text="Submit"
         app:layout_constraintBaseline_toBaselineOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword" />
 
@@ -59,4 +59,5 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
