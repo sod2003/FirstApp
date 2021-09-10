@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityOne">
+
+    <EditText
+        android:id="@+id/etTimer"
+        android:layout_width="378dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="2dp"
+        android:ems="15"
+        android:gravity="center"
+        android:hint="Enter time in seconds\nThen press 'Set Timer'"
+        android:textSize="30dp"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/setTimerBtn"
+        app:layout_constraintEnd_toStartOf="@+id/set30SecondTimerBtn"
+        app:layout_constraintStart_toStartOf="@+id/set30SecondTimerBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/set2MinuteTimerBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:onClick="set2MinuteTimer"
+        android:text="Set 2 Minute Timer"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/setMinuteTimerBtn"
+        app:layout_constraintTop_toBottomOf="@+id/set30SecondTimerBtn" />
+
+    <Button
+        android:id="@+id/setMinuteTimerBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="1dp"
+        android:onClick="setMinuteTimer"
+        android:text="Set 1 Minute Timer"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/set2MinuteTimerBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setTimerBtn" />
+
+    <Button
+        android:id="@+id/setTimerBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="3dp"
+        android:onClick="setCustomTimer"
+        android:text="Set Timer"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/setMinuteTimerBtn"
+        app:layout_constraintEnd_toStartOf="@+id/set30SecondTimerBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTimer" />
+
+    <Button
+        android:id="@+id/set30SecondTimerBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:onClick="set30SecondTimer"
+        android:text="Set 30 Second Timer"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/set2MinuteTimerBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/setTimerBtn"
+        app:layout_constraintTop_toBottomOf="@+id/etTimer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
