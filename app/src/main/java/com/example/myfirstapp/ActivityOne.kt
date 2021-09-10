@@ -69,7 +69,7 @@ class ActivityOne : AppCompatActivity() {
         Log.i(TAG, "setCustomTimerBtn pressed")
         val time = etTimer.getText().toString().toInt()
         startTimer("Custom Timer", time)
-        val customText = "Custom Timer set for $time seconds"
+        val customText = "Custom Timer set for " + time / 60 + " minute(s) and " + time % 60 + " second(s)"
         Toast.makeText(this, customText,Toast.LENGTH_SHORT).show()
         etTimer.setText("")
 
