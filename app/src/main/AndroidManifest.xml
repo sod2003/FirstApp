@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApp">
         <activity
-            android:name=".ActivityOne"
-            android:exported="true" >
+            android:name=".SignupActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,25 +23,22 @@
 
         </activity>
         <activity
-            android:name=".contactsActivity"
+            android:name=".ActivityOne"
             android:exported="true">
 
         </activity>
+        <activity
+            android:name=".contactsActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".CalculatorActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activity_counter"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
