@@ -11,13 +11,13 @@ class SignupActivity : AppCompatActivity() {
     lateinit var radioBtn: String
     lateinit var spinner : Spinner
     lateinit var country : String
-    lateinit var hobbies : BooleanArray
+    lateinit var hobbies : MutableMap<String, Boolean>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         populateSpinner()
-        hobbies = booleanArrayOf(false, false, false)
+        hobbies = mapOf("Programming" to false, "Tennis" to false, "Music" to false) as MutableMap<String, Boolean>
 
     }
 
@@ -76,23 +76,23 @@ class SignupActivity : AppCompatActivity() {
             when (view.id) {
                 R.id.checkbox_Programming    -> {
                     if (checked) {
-                        hobbies[0] = true
+                        hobbies["Programming"] = true
                     } else {
-                        hobbies[0] = false
+                        hobbies["Programming"] = false
                     }
                 }
                 R.id.checkbox_Tennis -> {
                     if (checked) {
-                        hobbies[1] = true
+                        hobbies["Tennis"] = true
                     } else {
-                        hobbies[1] = false
+                        hobbies["Tennis"] = false
                     }
                 }
                 R.id.checkbox_Music -> {
                     if (checked) {
-                        hobbies[2] = true
+                        hobbies["Music"] = true
                     } else {
-                        hobbies[2] = false
+                        hobbies["Music"] = false
                     }
                 }
             }
@@ -105,8 +105,25 @@ class SignupActivity : AppCompatActivity() {
         intent.putExtra("name", R.id.etName)
         intent.putExtra("country", country)
         intent.putExtra("gender", radioBtn)
-        intent.putExtra("hobbies", hobbies)
+        val hobbyList = hobbyString()
+        intent.putExtra("hobbies", hobbyList)
         startActivity(intent)
+    }
+
+    private fun hobbyString(): String {
+        var commaRef = false
+        var string: String = ""
+        for (hobby in hobbies) {
+            if (commaRef == true) {
+                string.plus(", ")
+                commaRef = false
+            }
+            if (hobby.value == true) {
+                string.plus(hobby.key)
+            }
+        }
+
+        return string
     }
 
 

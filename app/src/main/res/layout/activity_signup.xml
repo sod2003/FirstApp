@@ -34,7 +34,6 @@
             android:id="@+id/radioMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:textSize="25sp"
             android:onClick="onRadioButtonClicked"
@@ -44,7 +43,6 @@
             android:id="@+id/radioFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:textSize="25sp"
             android:onClick="onRadioButtonClicked"
@@ -75,32 +73,29 @@
         android:id="@+id/checkbox_Programming"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:text="Programming"
-        android:onClick="onCheckBoxClicked"
-        android:layout_margin="10dp"/>
+        android:onClick="onCheckBoxClicked"/>
 
     <CheckBox
         android:id="@+id/checkbox_Tennis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:text="Tennis"
-        android:onClick="onCheckBoxClicked"
-        android:layout_margin="10dp"/>
+        android:onClick="onCheckBoxClicked"/>
 
     <CheckBox
         android:id="@+id/checkbox_Music"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:text="Music"
-        android:onClick="onCheckBoxClicked"
-        android:layout_margin="10dp"/>
+        android:onClick="onCheckBoxClicked" />
 
     <Button
         android:id="@+id/button"
-        android:layout_margin="25dp"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="signUp"
