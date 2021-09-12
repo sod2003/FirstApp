@@ -7,11 +7,18 @@
     android:orientation="vertical"
     tools:context=".SignupActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Name?"
+        android:textSize="25sp" />
+
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="20dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Name"
@@ -20,6 +27,7 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -27,6 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="25sp"
             android:onClick="onRadioButtonClicked"
             android:text="Male" />
 
@@ -35,13 +45,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="25sp"
             android:onClick="onRadioButtonClicked"
             android:text="Female" />
     </RadioGroup>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Country?"
+        android:textSize="25sp" />
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Hobbies?"
+        android:textSize="25sp" />
+
+    <CheckBox
+        android:id="@+id/checkbox_Programming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Programming"
+        android:onClick="onCheckBoxClicked"
+        android:layout_margin="10dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_Tennis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Tennis"
+        android:onClick="onCheckBoxClicked"
+        android:layout_margin="10dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_Music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Music"
+        android:onClick="onCheckBoxClicked"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="signUp"
+        android:text="Signup" />
 
 </LinearLayout>
