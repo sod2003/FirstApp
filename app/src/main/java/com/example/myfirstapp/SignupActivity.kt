@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 
-class SignupActivity : AppCompatActivity() {
+class SignupActivity() : AppCompatActivity(), View.OnClickListener {
     lateinit var etName: EditText
     lateinit var radioBtn: String
     lateinit var spinner : Spinner
@@ -20,6 +20,8 @@ class SignupActivity : AppCompatActivity() {
         etName = findViewById((R.id.etName))
         populateSpinner()
         hobbies = mapOf("Programming" to false, "Tennis" to false, "Music" to false) as MutableMap<String, Boolean>
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener(this)
 
     }
 
@@ -101,17 +103,17 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
-    fun signUp(view: android.view.View) {
-        var intent = Intent(this, Signup2Activity::class.java) //explicit Intent
-        country = spinner.selectedItem.toString()
-        var name = etName.text.toString()
-        intent.putExtra("name", name)
-        intent.putExtra("country", country)
-        intent.putExtra("gender", radioBtn)
-        val hobbyList = hobbyString()
-        intent.putExtra("hobbies", hobbyList)
-        startActivity(intent)
-    }
+//    fun signUp(view: android.view.View) {
+//        var intent = Intent(this, Signup2Activity::class.java) //explicit Intent
+//        country = spinner.selectedItem.toString()
+//        var name = etName.text.toString()
+//        intent.putExtra("name", name)
+//        intent.putExtra("country", country)
+//        intent.putExtra("gender", radioBtn)
+//        val hobbyList = hobbyString()
+//        intent.putExtra("hobbies", hobbyList)
+//        startActivity(intent)
+//    }
 
     private fun hobbyString(): String {
         var commaRef = false
@@ -128,6 +130,18 @@ class SignupActivity : AppCompatActivity() {
         }
 
         return string
+    }
+
+    override fun onClick(p0: View?) {
+        var intent = Intent(this, Signup2Activity::class.java) //explicit Intent
+        country = spinner.selectedItem.toString()
+        var name = etName.text.toString()
+        intent.putExtra("name", name)
+        intent.putExtra("country", country)
+        intent.putExtra("gender", radioBtn)
+        val hobbyList = hobbyString()
+        intent.putExtra("hobbies", hobbyList)
+        startActivity(intent)
     }
 
 
