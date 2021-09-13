@@ -4,6 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 
@@ -23,6 +26,29 @@ class SignupActivity() : AppCompatActivity(), View.OnClickListener {
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener(this)
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        val menuInflater: MenuInflater = this.menuInflater
+        menuInflater.inflate(R.menu.home_menu,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.miFirst -> {
+                Toast.makeText(this, "first", Toast.LENGTH_SHORT).show();
+            }
+            R.id.miSecond -> {
+                Toast.makeText(this, "second", Toast.LENGTH_SHORT).show();
+            }
+            R.id.miThird -> {
+                Toast.makeText(this, "third", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return true
     }
 
     fun onRadioButtonClicked(view: android.view.View) {
@@ -103,6 +129,18 @@ class SignupActivity() : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    override fun onClick(p0: View?) {
+        val intent = Intent(this, Signup2Activity::class.java) //explicit Intent
+        country = spinner.selectedItem.toString()
+        val name = etName.text.toString()
+        intent.putExtra("name", name)
+        intent.putExtra("country", country)
+        intent.putExtra("gender", radioBtn)
+        val hobbyString = hobbyString()
+        intent.putExtra("hobbies", hobbyString)
+        startActivity(intent)
+    }
+
 //    fun signUp(view: android.view.View) {
 //        var intent = Intent(this, Signup2Activity::class.java) //explicit Intent
 //        country = spinner.selectedItem.toString()
@@ -119,29 +157,18 @@ class SignupActivity() : AppCompatActivity(), View.OnClickListener {
         var commaRef = false
         var string: String = ""
         for (hobby in hobbies) {
-            if (commaRef == true) {
-                string = string.plus(", ")
-                commaRef = false
-            }
             if (hobby.value == true) {
-                string = string.plus(hobby.key)
-                commaRef = true
+                if (commaRef == true) {
+                    string = string.plus(", ")
+                    commaRef = false
+                }
+
+                    string = string.plus(hobby.key)
+                    commaRef = true
             }
         }
 
         return string
-    }
-
-    override fun onClick(p0: View?) {
-        var intent = Intent(this, Signup2Activity::class.java) //explicit Intent
-        country = spinner.selectedItem.toString()
-        var name = etName.text.toString()
-        intent.putExtra("name", name)
-        intent.putExtra("country", country)
-        intent.putExtra("gender", radioBtn)
-        val hobbyList = hobbyString()
-        intent.putExtra("hobbies", hobbyList)
-        startActivity(intent)
     }
 
 
