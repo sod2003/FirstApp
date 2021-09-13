@@ -5,17 +5,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 
-class SignupActivity() : AppCompatActivity(), View.OnClickListener {
-    lateinit var etName: EditText
-    lateinit var radioBtn: String
-    lateinit var spinner : Spinner
-    lateinit var country : String
-    lateinit var hobbies : MutableMap<String, Boolean>
+class SignupActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var etName: EditText
+    private lateinit var radioBtn: String
+    private lateinit var spinner : Spinner
+    private lateinit var country : String
+    private lateinit var hobbies : MutableMap<String, Boolean>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,29 +28,26 @@ class SignupActivity() : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu)
-        val menuInflater: MenuInflater = this.menuInflater
         menuInflater.inflate(R.menu.home_menu,menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        super.onOptionsItemSelected(item)
         when (item.itemId) {
             R.id.miFirst -> {
-                Toast.makeText(this, "first", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "first", Toast.LENGTH_SHORT).show()
             }
             R.id.miSecond -> {
-                Toast.makeText(this, "second", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "second", Toast.LENGTH_SHORT).show()
             }
             R.id.miThird -> {
-                Toast.makeText(this, "third", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "third", Toast.LENGTH_SHORT).show()
             }
         }
         return true
     }
 
-    fun onRadioButtonClicked(view: android.view.View) {
+    fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
             val checked = view.isChecked
@@ -70,7 +66,7 @@ class SignupActivity() : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun populateSpinner() {
+    private fun populateSpinner() {
         spinner = findViewById(R.id.spinner)
         spinner.onItemSelectedListener = SpinnerActivity()
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -99,7 +95,7 @@ class SignupActivity() : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun onCheckBoxClicked(view: android.view.View) {
+    fun onCheckBoxClicked(view: View) {
         if (view is CheckBox) {
             val checked: Boolean = view.isChecked
 
@@ -155,10 +151,10 @@ class SignupActivity() : AppCompatActivity(), View.OnClickListener {
 
     private fun hobbyString(): String {
         var commaRef = false
-        var string: String = ""
+        var string = ""
         for (hobby in hobbies) {
-            if (hobby.value == true) {
-                if (commaRef == true) {
+            if (hobby.value) {
+                if (commaRef) {
                     string = string.plus(", ")
                     commaRef = false
                 }
