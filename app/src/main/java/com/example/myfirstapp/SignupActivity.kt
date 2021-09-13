@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.*
 
 class SignupActivity : AppCompatActivity() {
+    lateinit var etName: EditText
     lateinit var radioBtn: String
     lateinit var spinner : Spinner
     lateinit var country : String
@@ -16,6 +17,7 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+        etName = findViewById((R.id.etName))
         populateSpinner()
         hobbies = mapOf("Programming" to false, "Tennis" to false, "Music" to false) as MutableMap<String, Boolean>
 
@@ -102,7 +104,8 @@ class SignupActivity : AppCompatActivity() {
     fun signUp(view: android.view.View) {
         var intent = Intent(this, Signup2Activity::class.java) //explicit Intent
         country = spinner.selectedItem.toString()
-        intent.putExtra("name", R.id.etName)
+        var name = etName.text.toString()
+        intent.putExtra("name", name)
         intent.putExtra("country", country)
         intent.putExtra("gender", radioBtn)
         val hobbyList = hobbyString()
@@ -115,11 +118,12 @@ class SignupActivity : AppCompatActivity() {
         var string: String = ""
         for (hobby in hobbies) {
             if (commaRef == true) {
-                string.plus(", ")
+                string = string.plus(", ")
                 commaRef = false
             }
             if (hobby.value == true) {
-                string.plus(hobby.key)
+                string = string.plus(hobby.key)
+                commaRef = true
             }
         }
 
